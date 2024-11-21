@@ -1,0 +1,335 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #fdfbf8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-left: 300px;
+  padding-right: 300px;
+  padding-top: 40px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.search-bar input {
+  border: none;
+  padding: 5px 10px;
+  outline: none;
+  width: 200px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cart-btn {
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Main Content Section 1 */
+
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 0 auto;
+  background-image: url('Assets/1_image.png'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the section */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat;
+  width: 100%; 
+  height: calc(100vw / 16 * 9);
+}
+
+.left-container {
+  flex: 1;
+}
+
+.left-container h3 {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.left-container h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.explore-btn {
+  padding: 15px 30px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links p {
+  font-size: 14px;
+  color: #555;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.icons a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.right-container {
+  flex: 1;
+}
+
+.right-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 500px;
+}
+
+/* Section 2: Intro */
+.intro {
+  position: relative; /* Allows for overlaying content */
+  width: 100%; /* Full width */
+  height: calc(100vw / 16 * 9); /* Maintains 16:9 aspect ratio */
+  background-image: url('Assets/2.png'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the section */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling of the image */
+  margin: 0; /* Removes any margin for this section */
+}
+
+
+
+.intro h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.divider {
+  height: 2px;
+  width: 100px;
+  background-color: #ddd;
+  margin: 0 auto;
+}
+
+/* Featured Section */
+.featured {
+  text-align: center;
+  margin: 50px;
+}
+
+.featured h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.featured p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.product-carousel-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-carousel {
+  display: flex;
+  overflow: hidden;
+  gap: 20px;
+  width: 80%; /* Controls the width of the carousel */
+}
+
+.product-card {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 30%; /* Adjust width to fit 3 items */
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.add-to-cart {
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 15px;
+}
+
+.carousel-btn {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}
+
+.explore-btn {
+  padding: 15px 30px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+/* Section 4: About Us / Contact */
+.about-contact {
+  background-color: #f0f0f0;
+  padding: 50px;
+  text-align: center;
+}
+
+.about-contact-header h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.about-contact-info {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.about, .contact {
+  flex: 1;
+}
+
+.about h3, .contact h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  font-size: 16px;
+  color: #555;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #333;
+  margin-top: 5px;
+}
