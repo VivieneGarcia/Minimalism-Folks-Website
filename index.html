@@ -9,104 +9,91 @@
 </head>
 <body>
     <header>
-        <div class="logo">MF</div>
+        <a href="#home" class="logo">
+            <img src="Assets/icon/logo.png" alt="Logo"> 
+        </a>
         <nav>
-            <a href="#">Collection</a>
-            <a href="#">Contact</a>
-            <div class="search-bar">
-                <input type="text" placeholder="Search product">
-                <button class="search-icon">🔍</button>
-            </div>
-            <button class="cart-btn">Your Cart</button>
+            <a href="products.html">COLLECTION</a>
+            <a href="#about-contact">CONTACT</a>
+            <button class="view-cart">
+                <img src="Assets/icon/shopping-cart.png" alt="Cart Icon" class="cart-icon">
+                Your Cart
+            </button>
         </nav>
     </header>
 
     <main>
         <!-- Section 1: Intro Content -->
-        <div class="content">
+        <div id="home" class="content">
             <div class="left-container">
                 <h3>Furniture Curated for Clarity</h3>
                 <h1>MINIMALISM FOLKS</h1>
-                <button class="explore-btn">Explore Our Collection</button>
+                <button class="explore-btn" onclick="window.location.href='products.html'">
+                    <img src="Assets/icon/search-interface-symbol.png" alt="Search Icon" class="explore-icon">
+                    EXPLORE OUR COLLECTION
+                </button>
+
                 <div class="social-links">
                     <p>@minimalismfolks</p>
                     <div class="icons">
-                        <a href="#">Facebook</a>
-                        <a href="#">Instagram</a>
-                        <a href="#">Twitter</a>
+                        <a href="#" class="social-icon">
+                            <img src="Assets/icon/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="#" class="social-icon">
+                            <img src="Assets/icon/instagram.png" alt="Instagram">
+                        </a>
+                        <a href="#" class="social-icon">
+                            <img src="Assets/icon/twitter.png" alt="Twitter">
+                        </a>
+                        <a href="#" class="social-icon">
+                            <img src="Assets/icon/tiktok.png" alt="Tiktok">
+                        </a>
                     </div>
+                    
                 </div>
             </div>
             <div class="right-container">
-                <img src="Assets/landing.jpg" alt="Furniture Image">
+                <img src="Assets/product/landing.jpg" alt="Furniture Image">
             </div>
         </div>
 
         <!-- Section 2: Intro -->
         <section class="intro">
-            <h2>An online store offering curated minimalist furniture to simplify your life</h2>
-            <div class="divider"></div>
+            <div class="background"></div> <!-- Fixed Background -->
+            <div class="floating-assets">
+                <div class="asset img1"></div> <!-- Floating Image 1 -->
+                <div class="asset img2"></div> <!-- Floating Image 2 -->
+                <div class="asset img3"></div> <!-- Floating Image 3 -->
+                <div class="asset img4"></div> <!-- Floating Image 4 -->
+                <div class="asset img5"></div> <!-- Floating Image 5 -->
+            </div>
+        
+            <div class="intro-text">
+                <h1>An online store offering curated minimalist furniture to simplify your life</h1>
+            </div>
         </section>
-
+        
         <!-- Section 3: Featured Furniture -->
         <section class="featured">
-          <h3>Featured Furniture Essentials</h3>
-          <p>Handpicked pieces for a serene living.</p>
-          <div class="product-carousel-container">
-              <button class="carousel-btn left" id="left-btn">&#8592;</button> <!-- Left Arrow -->
-              
-              <div class="product-carousel">
-                  <!-- Product 1 -->
-                  <div class="product-card">
-                      <h4>The Petite</h4>
-                      <p>Fine White Vase + The Plastic Blossom</p>
-                      <p class="price">₱300</p>
-                      <button class="add-to-cart">Add to Cart</button>
-                      <img src="path_to_image1.jpg" alt="Product 1" class="product-image">
-                  </div>
-                  <!-- Product 2 -->
-                  <div class="product-card">
-                      <h4>Eggshell</h4>
-                      <p>White Leather Chair + Narrow Wood Legs</p>
-                      <p class="price">₱1000</p>
-                      <button class="add-to-cart">Add to Cart</button>
-                      <img src="path_to_image2.jpg" alt="Product 2" class="product-image">
-                  </div>
-                  <!-- Product 3 -->
-                  <div class="product-card">
-                      <h4>Morning Happiness</h4>
-                      <p>White Alarm Clock + 3 Tuning Tone Options</p>
-                      <p class="price">₱700</p>
-                      <button class="add-to-cart">Add to Cart</button>
-                      <img src="path_to_image3.jpg" alt="Product 3" class="product-image">
-                  </div>
-                  <!-- Product 4 -->
-                  <div class="product-card">
-                      <h4>Minimalist Desk</h4>
-                      <p>Simple Wooden Desk + Steel Legs</p>
-                      <p class="price">₱1500</p>
-                      <button class="add-to-cart">Add to Cart</button>
-                      <img src="path_to_image4.jpg" alt="Product 4" class="product-image">
-                  </div>
-                  <!-- Product 5 -->
-                  <div class="product-card">
-                      <h4>Urban Sofa</h4>
-                      <p>Modern Sofa + Relaxed Cotton Upholstery</p>
-                      <p class="price">₱2500</p>
-                      <button class="add-to-cart">Add to Cart</button>
-                      <img src="path_to_image5.jpg" alt="Product 5" class="product-image">
-                  </div>
-              </div>
-              
-              <button class="carousel-btn right" id="right-btn">&#8594;</button> <!-- Right Arrow -->
-          </div>
-          <button class="explore-btn">Explore Our Collection</button>
-      </section>
+            <h3>Featured Furniture Essentials</h3>
+            <p>Handpicked pieces for a serene living.</p>
+
+            <div class="product-carousel-container">
+                <button class="carousel-btn left" id="left-btn">&#8592;</button> <!-- Left Arrow -->
+                <div class="product-carousel" id="product-carousel"></div>
+                <button class="carousel-btn right" id="right-btn">&#8594;</button> <!-- Right Arrow -->
+            </div>
+
+            <button class="explore-btn" onclick="window.location.href='products.html'">
+                <img src="Assets/icon/search-interface-symbol.png" alt="Search Icon" class="explore-icon">
+                EXPLORE OUR COLLECTION
+            </button>
+        </section>
       
       
 
         <!-- Section 4: About Us / Contact -->
-        <section class="about-contact">
+        <section class="about-contact" id="about-contact" >
             <div class="about-contact-header">
                 <h2>ABOUT US / CONTACT</h2>
             </div>
@@ -122,7 +109,10 @@
                             <a href="#">Twitter</a>
                         </div>
                     </div>
-                    <button class="explore-btn">Explore Our Collection</button>
+                    <button class="explore-btn" onclick="window.location.href='products.html'">
+                        <img src="Assets/icon/search-interface-symbol.png" alt="Search Icon" class="explore-icon">
+                        EXPLORE OUR COLLECTION
+                    </button>
                 </div>
                 <div class="contact">
                     <h3>WE'RE HERE TO HELP</h3>
@@ -136,6 +126,28 @@
 
     </main>
 
-    <script src="scripts.js"></script>
+
+    <div id="cart-notification" class="popup hidden">Added to Cart!</div>
+
+    <!-- Updated Cart Content Popup -->
+    <div id="overlay" class="overlay hidden"></div> <!-- Darkened background -->
+<div id="cart-popup" class="cart-popup hidden">
+  <div class="cart-content">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div> <!-- Container for cart items -->
+    <div id="total-price">Total: ₱0.00</div>
+    
+    <!-- Buttons container -->
+    <div class="buttons">
+      <button id="close-cart">Close</button>
+      <button id="buy-btn">Buy</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>

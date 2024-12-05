@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <title>Minimalism Folks - Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="Assets/icon/logo.png" alt="Logo"> 
+        </a>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="index.html#about-contact">CONTACT</a>
+            <button class="view-cart">
+                <img src="Assets/icon/shopping-cart.png" alt="Cart Icon" class="cart-icon">
+                Your Cart
+            </button>
+        </nav>
+    </header>
+
+    <div class="product-list">
+        <section class="products">
+            <h1>Our Collection</h1>
+            <div class="product-grid" id="product-grid">
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Minimalism Folks. All rights reserved.</p>
+    </footer>
+
+    <div id="cart-notification" class="popup hidden">Added to Cart!</div>
+
+    <!-- Updated Cart Content Popup -->
+    <div id="overlay" class="overlay hidden"></div> <!-- Darkened background -->
+<div id="cart-popup" class="cart-popup hidden">
+  <div class="cart-content">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div> <!-- Container for cart items -->
+    <div id="total-price">Total: ₱0.00</div>
+    
+    <!-- Buttons container -->
+    <div class="buttons">
+      <button id="close-cart">Close</button>
+      <button id="buy-btn">Buy</button>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+</body>
+</html>
