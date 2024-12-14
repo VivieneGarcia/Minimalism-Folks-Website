@@ -1,4 +1,4 @@
-/* General Reset */
+@media (min-width: 300px) {
 * {
   margin: 0;
   padding: 0;
@@ -9,13 +9,17 @@ body {
   font-family: 'Raleway', sans-serif;
   background-color: #fdfbf8;
   color: #333;
+  
+}
+
+main{
+  overflow:hidden;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   position: fixed; /* Change from sticky to fixed */
@@ -23,20 +27,20 @@ header {
   left: 0; /* Ensure it covers the whole width */
   width: 100%; /* Full width */
   z-index: 999; /* High z-index to ensure it's on top */
-  padding-left: 15rem;
-  padding-right: 15rem;
-  padding-top: 20px; /* Adjust padding to fit design */
+  padding-left: 12vw;
+  padding-right: 12vw;
+  padding-top: 1rem; /* Adjust padding to fit design */
 }
 
 .logo img {
-  height: 50px; /* Adjust the size of the logo as needed */
+  height: 6vh; /* Adjust the size of the logo as needed */
   width: auto; /* Maintain aspect ratio */
 }
 
 nav {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 4vh;
 }
 
 nav a {
@@ -94,8 +98,11 @@ nav a {
   background-repeat: no-repeat; */
   width: 100%; 
   height: calc(100vw / 16 * 9);
+  
 }
-
+#home{
+  overflow: hidden;
+}
 .left-container {
   margin-left:1rem;
   display: flex;
@@ -137,13 +144,17 @@ nav a {
 }
 
 .social-icon img {
-  width: 1.6rem; 
+  width: 1.6rem;
   height: auto;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 }
 
 .social-icon:hover img {
-  transform: scale(1.1); 
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+.social-icon:active img {
+  transform: scale(0.9); /* Scale down on click */
 }
 
 .right-container img {
@@ -172,6 +183,11 @@ nav a {
   z-index: 1000;
 }
 
+.explore-btn:active{
+  transform: scale(0.9);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2); /* Inset shadow for a pressed effect */
+}
+
 .explore-btn:hover{
   transform: scale(1.02);
   background-color: #d3d0d0;
@@ -185,6 +201,7 @@ nav a {
 
 .featured .explore-btn{
   margin-top: 2rem;
+  margin-bottom: 4rem;
   justify-content: center;
 }
 
@@ -193,6 +210,7 @@ nav a {
   position: relative;
   height: 100vh;
   overflow: visible; 
+  max-width: 100vw;
 }
 
 /* Background Image */
@@ -204,13 +222,14 @@ nav a {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  z-index: -2
+  z-index: -2;
 }
 
 .floating-assets {
   position: absolute;
   width: 100%;
   height: 100%;
+  
 }
 
 .asset {
@@ -221,6 +240,7 @@ nav a {
   opacity: 0.8;
   z-index: 2;
   aspect-ratio: 1 / 1; 
+  
 }
 
 .img1 {
@@ -233,15 +253,42 @@ nav a {
 
 .img2 {
   background-image: url('Assets/product/lamp.png');
-  top: -39%;
+  top: 70%;
   right: 78%;
   width: 40%;            
   transform: rotate(-1deg); /* Initial rotation */
 }
 
+.img7 {
+  background-image: url('Assets/product/alarmClock.png');
+  bottom: -45%;
+  right: -12%;
+  width: 50%;            
+  transform: rotate(-1deg); /* Initial rotation */
+  z-index:1000;
+}
+
+.img8{
+  background-image: url('Assets/icon/logo.png');
+  bottom: -30%;
+  right: 66%;
+  width: 30%;            
+  transform: rotate(-1deg); /* Initial rotation */
+}
+
+.img9{
+  background-image: url('Assets/icon/logo.png');
+  top: 160%;
+  right: 75%;
+  width: 20%;            
+  transform: rotate(-1deg); /* Initial rotation */
+  z-index:-1;
+
+}
+
 .img3 {
   background-image: url('Assets/product/brownPlant.png');
-  top: -70%;
+  top: 40%;
   right: 40%;
   width: 40%;             
   transform: rotate(30deg); /* Initial rotation */
@@ -281,9 +328,8 @@ nav a {
 
 /* Featured Section */
 .featured {
-  height: calc(100vw / 16 * 9); 
   background-color: #FDFBF8;
-  padding-top: 1rem;
+  padding-top: 6rem;
   text-align: center; 
   display: flex; 
   flex-direction: column; 
@@ -293,7 +339,7 @@ nav a {
 
 .featured h3 {
   margin: 0;
-  font-size: 3rem;
+  font-size: 2.2rem;
   margin-bottom: 10px;
 }
 
@@ -328,10 +374,20 @@ nav a {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   opacity: 0;  
+  cursor: pointer;
   transition: box-shadow 0.3s ease ,opacity 0.3s ease-in-out, transform 0.4s ease-in-out; 
 }
 .product-card.show {
   opacity: 1;
+}
+
+.product-card {
+  position: relative;
+  /* Smooth transition for scaling */
+}
+
+.product-card:active {
+  transform: scale(0.98); /* Slightly shrink the card when clicked */
 }
 
 .product-card:hover {
@@ -410,7 +466,7 @@ nav a {
   font-size: 67px;
   color: #333;
   cursor: pointer;
-  top: 24%;
+  top:6%;
   border-radius: 50%;
   margin: 7rem;
   transition: transform 0.2s ease; /* Transition for both hover and active states */
@@ -441,21 +497,26 @@ nav a {
 
 /* Section 4: About Us / Contact */
 .about-contact {
+  display: flex;
   text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: calc(100vw / 16 * 9);
-  background-image: url('Assets/background/4.png'); 
+  height: calc(100vw / 16 * 6.5);
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
-  padding-top: 9rem;  /* Adds padding inside the section */
+  padding-top: 2rem;  /* Adds padding inside the section */
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-contact-header h2 {
   margin: 0;
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin-top: 2rem;
 }
 
 .about-contact-info {
@@ -466,19 +527,58 @@ nav a {
   gap: 50px;
 }
 
+.about{
+  padding: 1rem;
+  border: 2px solid black;
+  margin-top: 2rem;
+}
+
 .about, .contact {
   flex: 1;
 }
 
 .about h3, .contact h3 {
-  font-size: 24px;
+  font-size: 2.6rem;
+  text-align: left;
   margin-bottom: 15px;
+  margin-top: 2rem;
+}
+
+.about p {
+  margin: 0;
+  text-align: left;
+  margin-left: 0.2rem;
+  margin-top: 2rem;
+
+}
+
+.contact{
+  margin-top: 2rem;
+  padding: 1rem;
+  border:2px solid black;
 }
 
 .contact p {
   font-size: 16px;
+  margin-top: 1rem;
   color: #555;
+  text-align: left;
 }
+
+.about .explore-btn{
+  margin: 0;
+  margin-top: 2rem;
+  justify-content: center;
+  padding: 16px 20px;
+}
+
+.about-contact .explore-btn{
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  justify-content: center;
+  width: fit-content;
+}
+
 
 .social-links a {
   text-decoration: none;
@@ -556,9 +656,7 @@ nav a {
   z-index: 999; /* Behind the popup */
 }
 
-.hidden {
-  display: none;
-}
+
 
 .overlay.show,
 .cart-popup.show {
@@ -694,11 +792,372 @@ nav a {
   margin-top: 1rem;
 }
 
+.hidden {
+  display: none;
+}
+
+/*CHAT */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* White background with shadow */
+    cursor: pointer;
+    z-index: 1000;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: #ffffff; /* Dark text for visibility */
+    font-weight: bold;
+}
+
+.chat-button:hover {
+    background-color: #414141; /* Slight hover effect */
+}
+
+.chat-box {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  background-color: #0c1618;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;  /* Allow vertical scrolling */
+  max-height: calc(100% - 100px);  /* Deduct space for header and input area */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* User message style */
+.user-message {
+  background-color: #e1f7d5;
+  padding: 10px;
+  border-radius: 5px;
+  align-self: flex-start;
+  max-width: 80%;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+/* Bot (system) message style */
+.bot-message {
+  background-color: #dfe6e9;
+  padding: 10px;
+  border-radius: 5px;
+  align-self: flex-end;
+  max-width: 80%;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+#chat-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+  box-sizing: border-box;
+}
+
+.send-message {
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+  background-color: #00000000;
+}
+
+/* Icon inside the button */
+.send-message .send-icon {
+  width: 40px; /* Set icon size */
+  height: 40px;
+  margin-right: 8px;
+}
+
+.send-message:hover {
+  transform: scale(1.05);
+}
+
+.close-chat {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1050;
+}
+
+/* Icon inside the button */
+.close-chat .close-icon {
+  width: 20px; /* Set icon size */
+  height: 20px;
+}
+
+/* Hover Effect */
+.close-chat:hover {
+  transform: scale(1.3); /* Slight scale effect on hover */
+}
+
+/* Focus Effect */
+.close-chat:focus {
+  outline: none; /* Removes the focus outline */
+}
+
+.hidden{
+  display: none;
+}
+
+
+/* REVIEW */
+.reviews-section {
+  background-color: #f9f9f9;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap:1.41rem;
+  width: fit-content;
+}
+
+#review-form{
+  padding: 1rem;
+}
+
+#review-form input, #review-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#review-form button {
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+#review-form button:hover {
+  background-color: #333;
+}
+
+#rating {
+  margin: 10px 0;
+}
+
+.star {
+  font-size: 20px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.star.selected {
+  color: gold;
+}
+
+.reviews-container {
+  height: 400px;
+  overflow-y: auto;
+  padding:0.6rem;
+}
+
+
+.review-card {
+  background-color: white;
+  padding: 20px;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word; /* Ensure text wraps inside the card */
+  overflow-wrap: break-word; /* For wider support */
+}
+
+.review-card h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.review-card p {
+  font-style: italic;
+  color: #555;
+}
+
+.review-card .stars {
+  color: gold;
+}
+
+
+
 /*debug*/
-/* *{
+
+
+*{
   border: 1px solid red;
-} */
+}
+
+
 html {
   scroll-behavior: smooth;
 }
 
+.explore-btn:active{
+  transform: scale(0.9);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2); /* Inset shadow for a pressed effect */
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+#modal-image {
+  max-width: 100%;
+  max-height: 500px;
+}
+
+.close-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.close-btn:hover {
+  background-color: #d32f2f;
+}
+
+}
+
+@media (max-width: 750px) {
+  body {
+      font-size: 16px;
+      height: 100vh;
+  }
+
+  #home{
+    margin-top: 80px;
+    overflow: visible;
+    padding: 20px;
+    font-size: 1px;
+    gap: 1rem;
+  }
+
+
+  .intro{
+    height: calc(100vw / 16 * 9);
+    overflow: hidden;
+  }
+
+  .right-container{
+    margin: 0;
+    padding: 0;
+    height: 35vh;
+    width: fit-content;
+  }
+
+  .right-container img{
+    height:35vh;
+    width: 29vw;
+    padding: 0;
+  }
+  .left-container{
+    margin: 0;
+    padding: 0;
+  }
+  .left-container h1{
+    font-size: 2rem;
+  }
+  .left-container h3{
+    font-size: 10px;
+  }
+  
+  .explore-btn{
+    width:fit-content;
+    height: fit-content;
+    padding: 2px 5px;
+    font-size: 0.6rem;
+    margin: 0;
+  }
+
+  .social-links p{
+    display:none;
+  }
+
+  .asset{
+    display: none;
+  }
+
+  .intro-text h1{
+    font-size: 1rem;
+  }
+
+}

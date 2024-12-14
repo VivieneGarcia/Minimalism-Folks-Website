@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <title>Minimalism Folks</title>
     <link rel="stylesheet" href="styles.css">
@@ -25,6 +26,11 @@
     <main>
         <!-- Section 1: Intro Content -->
         <div id="home" class="content">
+            <div class="background"></div> <!-- Fixed Background -->
+            <div class="floating-assets">
+                <div class="asset img3"></div> <!-- Floating Image 2 -->
+                <div class="asset img2"></div> <!-- Floating Image 2 -->
+            </div>
             <div class="left-container">
                 <h3>Furniture Curated for Clarity</h3>
                 <h1>MINIMALISM FOLKS</h1>
@@ -59,11 +65,11 @@
 
         <!-- Section 2: Intro -->
         <section class="intro">
+            
             <div class="background"></div> <!-- Fixed Background -->
             <div class="floating-assets">
                 <div class="asset img1"></div> <!-- Floating Image 1 -->
-                <div class="asset img2"></div> <!-- Floating Image 2 -->
-                <div class="asset img3"></div> <!-- Floating Image 3 -->
+
                 <div class="asset img4"></div> <!-- Floating Image 4 -->
                 <div class="asset img5"></div> <!-- Floating Image 5 -->
             </div>
@@ -75,6 +81,9 @@
         
         <!-- Section 3: Featured Furniture -->
         <section class="featured">
+            <div class="floating-assets">
+                <div class="asset img8"></div> <!-- Floating Image 2 -->
+            </div>
             <h3>Featured Furniture Essentials</h3>
             <p>Handpicked pieces for a serene living.</p>
 
@@ -94,6 +103,9 @@
 
         <!-- Section 4: About Us / Contact -->
         <section class="about-contact" id="about-contact" >
+            <div class="floating-assets">
+                <div class="asset img7"></div> <!-- Floating Image 2 -->
+            </div>
             <div class="about-contact-header">
                 <h2>ABOUT US / CONTACT</h2>
             </div>
@@ -104,24 +116,35 @@
                     <div class="social-links">
                         <p>@minimalismfolks</p>
                         <div class="icons">
-                            <a href="#">Instagram</a>
-                            <a href="#">Facebook</a>
-                            <a href="#">Twitter</a>
+                            <a href="#" class="social-icon">
+                                <img src="Assets/icon/facebook.png" alt="Facebook">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="Assets/icon/instagram.png" alt="Instagram">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="Assets/icon/twitter.png" alt="Twitter">
+                            </a>
+                            <a href="#" class="social-icon">
+                                <img src="Assets/icon/tiktok.png" alt="Tiktok">
+                            </a>
                         </div>
                     </div>
-                    <button class="explore-btn" onclick="window.location.href='products.html'">
-                        <img src="Assets/icon/search-interface-symbol.png" alt="Search Icon" class="explore-icon">
-                        EXPLORE OUR COLLECTION
-                    </button>
                 </div>
                 <div class="contact">
                     <h3>WE'RE HERE TO HELP</h3>
-                    <p>Email: hello@minimalismfolks.com</p>
-                    <p>Phone: +1 (123) 456-7890</p>
-                    <p>Business Hours: Monday - Friday, 9 AM - 5 PM</p>
-                    <p>Location: Saturn Street, GCH, Alangilan</p>
+                    <p><strong>Email: </strong>hello@minimalismfolks.com</p>
+                    <p><strong>Phone: </strong> +1 (123) 456-7890</p>
+                    <p><strong>Business Hours: </strong> Monday - Friday, 9 AM - 5 PM</p>
+                    <p><strong>Location: </strong> Saturn Street, GCH, Alangilan</p>
                 </div>
+                
             </div>
+            <button class="explore-btn" onclick="window.location.href='products.html'">
+                <img src="Assets/icon/search-interface-symbol.png" alt="Search Icon" class="explore-icon">
+                EXPLORE OUR COLLECTION
+            </button>
+            <p>Created by <strong>Vivs</strong></p>
         </section>
 
     </main>
@@ -146,8 +169,33 @@
 </div>
 
 
+    <button id="chat-button" class="chat-button">
+        💬       Chat with Us
+    </button>
 
+    <div id="chat-box" class="chat-box hidden">
+        <div class="chat-header">
+            <h3>Chat with Us</h3>
+            <button id="close-chat" class="close-chat">
+                <img src="Assets/icon/exit.png" alt="Close Chat" class="close-icon">
+            </button>
+        </div>
+        <div class="chat-messages">
+
+        </div>
+        <input type="text" id="chat-input" placeholder="Type a message..." />
+        <button id="send-message" class="send-message">
+            <img src="Assets/icon/text.png" alt="Send Message" class="send-icon">
+        </button>
+        
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+
+<script>
+
+    
+</script>

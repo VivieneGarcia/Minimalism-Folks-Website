@@ -10,61 +10,104 @@ const products = [
 ];
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector('.product-carousel')) {
-        displayCarouselProducts();
-        document.getElementById('left-btn').addEventListener('click', moveCarouselLeft);
-        document.getElementById('right-btn').addEventListener('click', moveCarouselRight);
-    } else if (document.getElementById('product-grid')) {
-        displayAllProducts();
-    }
-    document.addEventListener('scroll', () => {
-        const scrollValue = window.scrollY;
-        document.querySelector('.img1').style.transform = `translateY(${scrollValue * 0.1}px) rotate(0deg)`;  // Slight vertical movement
-        document.querySelector('.img2').style.transform = `translateY(${scrollValue * 0.15}px) rotate(-1deg)`;
-        document.querySelector('.img3').style.transform = `translateY(${scrollValue * 0.12}px) rotate(30deg)`;
-        document.querySelector('.img4').style.transform = `translateY(${scrollValue * 0.18}px) rotate(-20deg)`;
-        document.querySelector('.img5').style.transform = `translateY(${scrollValue * 0.18}px) rotate(0deg)`;
+    displayAllProducts();
+    document.getElementById('submit-review').addEventListener('click', function () {
+        console.log("bomba");
+        const name = document.getElementById('review-name').value.trim();
+        const text = document.getElementById('review-text').value.trim();
+        const rating = document.querySelectorAll('.star.selected').length;
+    
+        if (name && text && rating > 0) {
+            // Create a new review card
+            const reviewCard = document.createElement('div');
+            reviewCard.classList.add('review-card');
+    
+            // Add content to the review card
+            reviewCard.innerHTML = `
+                <h3>${name}</h3>
+                <p>"${text}"</p>
+                <div class="stars">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
+            `;
+    
+            // Append the review card to the reviews container
+            document.getElementById('reviews-container').appendChild(reviewCard);
+    
+            // Clear input fields and reset rating
+            document.getElementById('review-name').value = '';
+            document.getElementById('review-text').value = '';
+            document.querySelectorAll('.star').forEach(star => star.classList.remove('selected'));
+        } else {
+            alert('Please fill out all fields and select a rating!');
+        }
     });
+
+    document.querySelectorAll('.star').forEach(star => {
+        star.addEventListener('click', function () {
+            // Deselect all stars
+            document.querySelectorAll('.star').forEach(s => s.classList.remove('selected'));
+            // Select the clicked star and all stars before it
+            for (let i = 0; i < this.getAttribute('data-value'); i++) {
+                document.querySelectorAll('.star')[i].classList.add('selected');
+            }
+        });
+    });
+    
     
 });
 
-let currentIndex = 0;
-function displayCarouselProducts() {
-    const carousel = document.querySelector('.product-carousel');
-    carousel.innerHTML = '';  
-    const featuredProducts = products.filter(product => product.featured);
+function openModal(imageSrc) {
+    const modal = document.getElementById('product-modal');
+    const modalImage = document.getElementById('modal-image');
+    modal.style.display = 'flex'; // Show the modal
+    modalImage.src = imageSrc; // Set the image source to the clicked product's image
+}
 
-    for (let i = 0; i < 3; i++) {
-        const productIndex = (currentIndex + i) % featuredProducts.length;
-        const product = featuredProducts[productIndex];
+// Function to close the modal
+document.getElementById('close-modal').addEventListener('click', function() {
+    const modal = document.getElementById('product-modal');
+    modal.style.display = 'none'; // Hide the modal
+});
 
+// Close modal when clicking outside of the modal content
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('product-modal');
+    if (event.target === modal) {
+        modal.style.display = 'none'; // Hide modal if clicked outside
+    }
+});
+
+
+function displayAllProducts() {
+    const gridContainer = document.getElementById('product-grid');
+    gridContainer.innerHTML = '';  // Clear previous content
+
+    products.forEach(product => {
         const card = document.createElement('div');
         card.className = 'product-card';
+        card.setAttribute('data-title', product.title.toLowerCase());  // Add data-title attribute
         card.innerHTML = `
             <img src="${product.imageSrc}" alt="${product.title}" class="product-image">
             <h4>${product.title}</h4>
             <p>${product.description}</p>
             <p class="price">${product.price}</p>
+            <button class="add-to-cart">
+                <img src="Assets/icon/shopping-cart.png" alt="Cart Icon" class="cart-icon">
+                Add to Cart
+            </button>
         `;
-        carousel.appendChild(card);
-
+        gridContainer.appendChild(card);
         setTimeout(() => {
             card.classList.add('show');
-        }, 10);
-    }
-}
+        }, 10); // Small delay to allow for DOM rendering
 
-
-function moveCarouselLeft() {
-    currentIndex = (currentIndex - 1 + products.length) % products.length;
-    displayCarouselProducts();
-}
-
-function moveCarouselRight() {
-    currentIndex = (currentIndex + 1) % products.length;
-    displayCarouselProducts();
+        // Add click event to open the modal when the image is clicked
+        const image = card.querySelector('.product-image');
+        image.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent the card click event from triggering
+            openModal(product.imageSrc);
+        });
+    });
 }
 
 
@@ -79,12 +122,23 @@ document.addEventListener('DOMContentLoaded', () => {
         displayAllProducts();
     }
 
+    // Add event listener to each "Add to Cart" button
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const productCard = event.target.closest('.product-card');
+            const title = productCard.querySelector('h4').innerText;
+            const price = productCard.querySelector('.price').innerText;
+            const imageSrc = productCard.querySelector('.product-image').src;
+
+            addToCart({ title, price, imageSrc });
+        });
+    });
+
     document.querySelector('.view-cart').addEventListener('click', showCartPopup);
     document.getElementById('close-cart').addEventListener('click', closeCartPopup);
     document.getElementById('buy-btn').addEventListener('click', simulateBuy);
     document.getElementById('overlay').addEventListener('click', closeCartPopup);
 });
-
 function addToCart(product) {
     const existingProduct = cart.find(item => item.title === product.title);
     if (existingProduct) {

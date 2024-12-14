@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <title>Minimalism Folks - Products</title>
     <link rel="stylesheet" href="styles.css">
@@ -21,14 +23,76 @@
             </button>
         </nav>
     </header>
-
+    <div class="floating-assets">
+        <div class="asset img9"></div> <!-- Floating Image 2 -->
+    </div>
     <div class="product-list">
+        
         <section class="products">
             <h1>Our Collection</h1>
+            <div class="social-links">
+                <p>Check out our social medias!</p>
+                <div class="icons">
+                    <a href="#" class="social-icon">
+                        <img src="Assets/icon/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="Assets/icon/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="Assets/icon/twitter.png" alt="Twitter">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="Assets/icon/tiktok.png" alt="Tiktok">
+                    </a>
+                </div>
+            </div>
             <div class="product-grid" id="product-grid">
             </div>
+            <h1>Reviews</h1>
+            <div class="reviews-section">
+                
+            
+                <!-- Review Form -->
+                <!-- HTML Structure -->
+                <div id="review-form">
+                    <h2>Leave a Review!</h2>
+                    <input type="text" id="review-name" placeholder="Your Name" required>
+                    <textarea id="review-text" placeholder="Write your review..." required></textarea>
+                    <div id="rating">
+                        <label>Rating:</label>
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <button id="submit-review" type="button">Submit Review</button>
+                </div>
+
+                <!-- Reviews Container -->
+                <div id="reviews-container" class="reviews-container">
+                    <div class="review-card">
+                        <h3>John Doe</h3>
+                        <p>"Great product! Highly recommend it."</p>
+                        <div class="stars">★★★★☆</div>
+                    </div>
+                    <div class="review-card">
+                        <h3>Jane Smith</h3>
+                        <p>"I love the minimalist design. It's perfect for my living room."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    
+                </div>
+
+
+             </div>
+             
         </section>
+        
     </div>
+    
+
 
     <footer>
         <p>&copy; 2024 Minimalism Folks. All rights reserved.</p>
@@ -52,9 +116,37 @@
   </div>
 </div>
 
+
+<button id="chat-button" class="chat-button">
+    💬       Chat with Us
+</button>
+
+<div id="chat-box" class="chat-box hidden">
+    <div class="chat-header">
+        <h3>Chat with Us</h3>
+        <button id="close-chat" class="close-chat">
+            <img src="Assets/icon/exit.png" alt="Close Chat" class="close-icon">
+        </button>
+    </div>
+    <div class="chat-messages">
+
+    </div>
+    <input type="text" id="chat-input" placeholder="Type a message..." />
+    <button id="send-message" class="send-message">
+        <img src="Assets/icon/text.png" alt="Send Message" class="send-icon">
+    </button>
     
+</div>
 
+    
+<div id="product-modal" class="modal">
+    <button id="close-modal" class="close-btn">x</button>
+    <div class="modal-content">
+        <img id="modal-image" src="" alt="Product Image">
+        
+    </div>
+</div>
 
-    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+    <script src="script copy.js"></script> <!-- Link to the JavaScript file -->
 </body>
 </html>
